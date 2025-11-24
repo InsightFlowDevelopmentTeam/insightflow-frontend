@@ -1,11 +1,12 @@
-import React from 'react';
 import { GetWorkspaceByUser } from '@/src/models/GetWorkspaceByUser';
-
+import Board from '@/src/components/Board';
 
 const WORKSPACE_URL = process.env.workspace_url;
 
+const workspacesCache: { data: GetWorkspaceByUser[] | null } = { data: null };
+
 async function getWorkspaces(): Promise<GetWorkspaceByUser[]> {
-  const userId: string = "d456cbc4-29a1-4b1b-bad7-e43475e1c93d";
+  const userId: string = "59ff940b-afef-4066-9adb-e5b7b41fcb60";
   const response = await fetch(WORKSPACE_URL + 'workspaces?userId=' + userId);
   const workspaces: GetWorkspaceByUser[] = await response.json();
   return workspaces;
@@ -14,16 +15,11 @@ async function getWorkspaces(): Promise<GetWorkspaceByUser[]> {
 // Este es un Server Component por defecto
 export default async function WorkspacesPage() {
   const workspaces = await getWorkspaces();
+  workspacesCache.data = workspaces;
   return (
-    <div>
-      <h1>Lista de workspaces</h1>
-      <ul>
-        {workspaces.map((workspace: GetWorkspaceByUser) => (
-          <li key={workspace.id}>
-            <strong>{workspace.name}</strong>
-          </li>
-        ))}
-      </ul>
-    </div>
+<main>
+      <h1 style={{ textAlign: 'center', padding: '10px' }}>Tablero de Espacios de Trabajo por Rol</h1>
+      <Board workspaces={workspacesCache.data ?? []} />
+    </main>
   );
 }
