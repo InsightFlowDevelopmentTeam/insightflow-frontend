@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting after CI
+name: cd
 on:
   workflow_run:
     workflows: ["ci"]
