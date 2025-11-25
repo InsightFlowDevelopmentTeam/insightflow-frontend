@@ -6,9 +6,14 @@ const WORKSPACE_URL = process.env.workspace_url;
 const workspacesCache: { data: GetWorkspaceByUser[] | null } = { data: null };
 
 async function getWorkspaces(): Promise<GetWorkspaceByUser[]> {
-  const userId: string = "59ff940b-afef-4066-9adb-e5b7b41fcb60";
+  const userId: string = "b3850a65-61d9-4417-8b03-de3a700d7064";
   const response = await fetch(WORKSPACE_URL + 'workspaces?userId=' + userId);
   const workspaces: GetWorkspaceByUser[] = await response.json();
+  for (const workspace of workspaces) {
+    if (workspace.userRole === 'Owner') {
+      workspace.userRole = 'Propietario';
+    }
+  }
   return workspaces;
 }
 
@@ -18,7 +23,9 @@ export default async function WorkspacesPage() {
   workspacesCache.data = workspaces;
   return (
 <main>
-      <h1 style={{ textAlign: 'center', padding: '10px' }}>Tablero de Espacios de Trabajo por Rol</h1>
+      <h1 style={{ textAlign: 'center', padding: '10px', backgroundColor: '#001b5aff' }}>
+        Tu listado de espacios
+      </h1>
       <Board workspaces={workspacesCache.data ?? []} />
     </main>
   );
