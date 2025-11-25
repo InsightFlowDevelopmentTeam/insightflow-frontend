@@ -20,13 +20,13 @@ jobs:
       with:
         node-version: '22'
     - name: Restore dependencies
-      run: pnpm install
+      run: npm install
     - name: Build
-      run: pnpm run build
+      run: npm run build
     - name: Login to Docker Hub
       run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
     - name: Docker Build
-      run: docker build -t insightflow-app -f dockerfile .
+      run: docker compose build --no-cache
     - name: Docker Tag
       run: docker tag insightflow-app albertolyonsz/insightflow-app
     - name: Docker push
