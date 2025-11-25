@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  route-service:
+    build: .
+    image: insightflow-app
+
+    ports:
+      - "80:80"
+    environment:
+      - USERS_URL=${USERS_URL}
+      - WORKSPACES_URL=${WORKSPACES_URL}
+      - DOCUMENTS_URL=${DOCUMENTS_URL}
+      - TASKS_URL=${TASKS_URL}
