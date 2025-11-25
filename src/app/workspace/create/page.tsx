@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 
 export default function Navigation() {
@@ -8,7 +9,7 @@ export default function Navigation() {
           <Link href="/">Inicio</Link> 
         </li>
         <li>
-          <Link href="/workspace">Workspace</Link> 
+          <Link href="/workspace">Mish</Link> 
         </li>
         <li>
           <Link href="/acerca">Acerca de</Link>
