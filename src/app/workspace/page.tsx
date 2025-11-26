@@ -22,7 +22,13 @@ async function getWorkspaces(): Promise<GetWorkspaceByUser[]> {
 
 // Este es un Server Component por defecto
 export default async function WorkspacesPage() {
-  const workspaces = await getWorkspaces();
+  let workspaces: GetWorkspaceByUser[] = [];
+  try {
+    workspaces = await getWorkspaces();
+  } catch (error) {
+    console.error('Error fetching workspaces:', error);
+    workspaces = [];
+  }
   workspacesCache.data = workspaces;
   return (
 <main>
