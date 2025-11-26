@@ -1,0 +1,34 @@
+name: cd
+on:
+  workflow_run:
+    workflows: ["ci"]
+    types:
+      - completed
+    branches:
+      - main
+  workflow_dispatch:  
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: npm install && npm run build
+      - name: Deploy to Firebase (Manual CLI)
+        run: |
+          # 1. Autenticar la Service Account antes de deploy
+          # Usa el secreto que contiene el JSON del Service Account
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSIGHTFLOWAPP_BB996 }}" > service-account-key.json
+          
+          # 2. Activar la Service Account para la sesión
+          gcloud auth activate-service-account --key-file=service-account-key.json
+          
+          # 3. Configurar el proyecto activo para la sesión
+          firebase use insightflowapp-37462
+          
+          # 4. Ejecutar el despliegue de Hosting y Functions
+          firebase deploy --only hosting,functions
+        
+        env:
+          # CRÍTICO: Activa la característica de Web Frameworks para Next.js
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
