@@ -2,7 +2,7 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json* yarn.lock* pnpm-lock.yaml* ./
+COPY package*.json yarn.lock* pnpm-lock.yaml* ./
 
 RUN \
   if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
@@ -19,24 +19,10 @@ RUN \
   elif [ -f pnpm-lock.yaml ]; then pnpm build; \
   fi
 
-FROM node:22-alpine AS runner
+FROM nginx:alpine AS runner
 
-WORKDIR /app
+COPY --from=builder /app/out /usr/share/nginx/html
 
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
+EXPOSE 80
 
-RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
-
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-USER nextjs
-
-EXPOSE 3000
-
-CMD ["node", "server.js"]
+CMD ["nginx", "-g", "daemon off;"]
