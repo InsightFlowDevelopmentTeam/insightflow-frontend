@@ -16,16 +16,17 @@ jobs:
         run: npm install && npm run build
       - name: Deploy to Firebase (Manual CLI)
         run: |
-          # 1. Autenticar la Service Account antes de deploy
-          printf "%s" "${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSIGHTFLOWAPP_37462 }}" > service-account-key.json
+        # 1. Decodificar el secreto Base64 y guardarlo como JSON
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSIGHTFLOWAPP_BB996 }}" | base64 -d > service-account-key.json
           
           # 2. Activar la Service Account para la sesión
+          # El flag --project es opcional ya que el JSON lo contiene, pero es buena práctica.
           gcloud auth activate-service-account --key-file=service-account-key.json --project insightflowapp-37462
           
-          # 3. Configurar el proyecto activo para la sesión (opcional si gcloud lo hace, pero seguro)
+          # 3. Configurar el proyecto activo para la sesión (opcional)
           firebase use insightflowapp-37462
           
-          # 4. Ejecutar el despliegue de Hosting y Functions
+          # 4. Ejecutar el despliegue
           firebase deploy --only hosting,functions
         
         env:
