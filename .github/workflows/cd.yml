@@ -18,7 +18,7 @@ jobs:
         run: |
           # 1. Autenticar la Service Account antes de deploy
           # Usa el secreto que contiene el JSON del Service Account
-          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSIGHTFLOWAPP_BB996 }}" > service-account-key.json
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSIGHTFLOWAPP_37462 }}" > service-account-key.json
           
           # 2. Activar la Service Account para la sesión
           gcloud auth activate-service-account --key-file=service-account-key.json
