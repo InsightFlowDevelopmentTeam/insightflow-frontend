@@ -2,7 +2,7 @@ import { GetWorkspaceByUser } from '@/src/models/GetWorkspaceByUser';
 import Board from '@/src/components/Board';
 import Link from 'next/link';
 
-const WORKSPACE_URL = process.env.WORKSPACES_URL;
+const WORKSPACE_URL = process.env.NEXT_PUBLIC_WORKSPACES_URL;
 
 const workspacesCache: { data: GetWorkspaceByUser[] | null } = { data: null };
 
