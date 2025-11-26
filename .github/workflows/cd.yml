@@ -13,21 +13,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Instalar dependencias
+      - name: Install dependencies
         run: npm install
 
       - name: Build
         run: npm run build
 
-      - name: Instalar Firebase CLI
+      - name: Install Firebase CLI
         run: npm install -g firebase-tools
+      - name: Enable Firebase CLI experiments
+        run: firebase experiments:enable webframeworks
 
-      - name: Autenticarse con Service Account
+      - name: Authenticate with Service Account
         run: |
           echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSIGHTFLOWAPP_37462 }}" > sa.json
           firebase auth:login:ci --token "$(jq -r .private_key sa.json)" || true
           firebase use insightflowapp-37462 --token "${{ secrets.FIREBASE_TOKEN }}"
 
-      - name: Deploy manual
+      - name: Manual deploy to Firebase Hosting
         run: |
           firebase deploy --only hosting --project insightflowapp-37462 --token "${{ secrets.FIREBASE_TOKEN }}"
