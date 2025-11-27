@@ -19,10 +19,12 @@ RUN \
   elif [ -f pnpm-lock.yaml ]; then pnpm build; \
   fi
 
-FROM nginx:alpine AS runner
+FROM node:22-alpine AS runner
 
-COPY --from=builder /app/out /usr/share/nginx/html
+WORKDIR /app
 
-EXPOSE 80
+COPY --from=builder /app ./
 
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+
+CMD ["npm", "start"]
