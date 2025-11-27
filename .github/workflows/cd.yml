@@ -8,32 +8,4 @@ on:
       - main
   workflow_dispatch:  
 jobs:
-  build_and_deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Set environment variables
-        run: |
-          echo "NEXT_PUBLIC_USERS_URL=${{ secrets.USERS_URL }}" >> .env.local
-          echo "NEXT_PUBLIC_WORKSPACES_URL=${{ secrets.WORKSPACES_URL }}" >> .env.local
-          echo "NEXT_PUBLIC_TASKS_URL=${{ secrets.TASKS_URL }}" >> .env.local
-          echo "NEXT_PUBLIC_DOCUMENTS_URL=${{ secrets.DOCUMENTS_URL }}" >> .env.local
-
-      - name: Build
-        run: npm run build
-
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
-
-      - name: Authenticate with Service Account
-        run: |
-          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSIGHTFLOWAPP_37462 }}" > sa.json
-          export GOOGLE_APPLICATION_CREDENTIALS=sa.json
-
-      - name: Manual deploy to Firebase Hosting
-        run: |
-          firebase deploy --only hosting --project insightflowapp-37462 --token "${{ secrets.FIREBASE_TOKEN }}"
+  
