@@ -42,7 +42,6 @@ export default async function WorkspacesPage() {
   justifyContent: 'space-between'
 }}>
   <h1 style={{ color: 'white', margin: 0, fontSize: 20 }}>Tu listado de espacios</h1>
-  <h1>{ WORKSPACE_URL }</h1>
   <div style={{ display: 'flex', gap: '20px', listStyle: 'none', margin: 0, padding: 0 }}>
     <li>
       <Link 
