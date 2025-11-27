@@ -1,0 +1,86 @@
+[debug] [2025-11-27T20:34:53.438Z] ----------------------------------------------------------------------
+[debug] [2025-11-27T20:34:53.441Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Beto\AppData\Local\pnpm\global\5\.pnpm\firebase-tools@14.26.0_@typ_590b0be5a8f42553cd6d4fb4230685eb\node_modules\firebase-tools\lib\bin\firebase.js login --reauth
+[debug] [2025-11-27T20:34:53.442Z] CLI Version:   14.26.0
+[debug] [2025-11-27T20:34:53.442Z] Platform:      win32
+[debug] [2025-11-27T20:34:53.442Z] Node Version:  v22.20.0
+[debug] [2025-11-27T20:34:53.442Z] Time:          Thu Nov 27 2025 17:34:53 GMT-0300 (Chile Summer Time)
+[debug] [2025-11-27T20:34:53.442Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=800957964&redirect_uri=http%3A%2F%2Flocalhost%3A9005&login_hint=revatoto15%40gmail.com
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-11-27T20:35:01.977Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2025-11-27T20:35:01.978Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"10be3ac4-33b4-4cbd-89f3-085babd2c1f1"}
+[debug] [2025-11-27T20:35:03.080Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2025-11-27T20:35:03.080Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"sRrQ0ByWmPL3mhiIQyyCBDKEnt1qMfKoT4sqTe7H3DM"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    10BE3
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=oJLcH1C0YiOMtR4r4qra3S1BsDJ25m1B9FuOJ7rJYdw&session=10be3ac4-33b4-4cbd-89f3-085babd2c1f1&attest=sRrQ0ByWmPL3mhiIQyyCBDKEnt1qMfKoT4sqTe7H3DM
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2025-11-27T20:35:06.798Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\Beto\AppData\Local\pnpm\global\5\.pnpm\@inquirer+core@10.3.2_@types+node@24.10.1\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:519:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1128:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:271:20)
+    at ReadStream.emit (node:events:531:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2025-11-27T20:35:10.580Z] ----------------------------------------------------------------------
+[debug] [2025-11-27T20:35:10.582Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Beto\AppData\Local\pnpm\global\5\.pnpm\firebase-tools@14.26.0_@typ_590b0be5a8f42553cd6d4fb4230685eb\node_modules\firebase-tools\lib\bin\firebase.js login --reauth
+[debug] [2025-11-27T20:35:10.582Z] CLI Version:   14.26.0
+[debug] [2025-11-27T20:35:10.582Z] Platform:      win32
+[debug] [2025-11-27T20:35:10.583Z] Node Version:  v22.20.0
+[debug] [2025-11-27T20:35:10.583Z] Time:          Thu Nov 27 2025 17:35:10 GMT-0300 (Chile Summer Time)
+[debug] [2025-11-27T20:35:10.583Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=322246789&redirect_uri=http%3A%2F%2Flocalhost%3A9005&login_hint=revatoto15%40gmail.com
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-11-27T20:35:16.620Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2025-11-27T20:35:16.621Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"d7cefc90-0aa9-488b-8c50-cd4532927949"}
+[debug] [2025-11-27T20:35:17.119Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2025-11-27T20:35:17.119Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"M3qAfA0jXQzeWbL5zTRD0CRmgKvjHfLnU12KjDgK0FI"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    D7CEF
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=6o3uUQCBcRoPrY16pVBgnd55vm5soqazE6SFIOx10fs&session=d7cefc90-0aa9-488b-8c50-cd4532927949&attest=M3qAfA0jXQzeWbL5zTRD0CRmgKvjHfLnU12KjDgK0FI
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2025-11-27T20:35:21.857Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\Beto\AppData\Local\pnpm\global\5\.pnpm\@inquirer+core@10.3.2_@types+node@24.10.1\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:519:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1128:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:271:20)
+    at ReadStream.emit (node:events:531:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.
