@@ -1,3 +1,6 @@
+"use client";
+
+
 import { GetWorkspaceByUser } from '@/src/models/GetWorkspaceByUser';
 import Board from '@/src/components/Board';
 import Link from 'next/link';
