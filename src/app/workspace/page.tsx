@@ -3,6 +3,7 @@ import Board from '@/src/components/Board';
 import Link from 'next/link';
 
 const WORKSPACE_URL = process.env.NEXT_PUBLIC_WORKSPACES_URL;
+console.log('WORKSPACE_URL:', WORKSPACE_URL);
 
 const workspacesCache: { data: GetWorkspaceByUser[] | null } = { data: null };
 
@@ -41,7 +42,7 @@ export default async function WorkspacesPage() {
   justifyContent: 'space-between'
 }}>
   <h1 style={{ color: 'white', margin: 0, fontSize: 20 }}>Tu listado de espacios</h1>
-  
+  <h1>{ WORKSPACE_URL }</h1>
   <div style={{ display: 'flex', gap: '20px', listStyle: 'none', margin: 0, padding: 0 }}>
     <li>
       <Link 
