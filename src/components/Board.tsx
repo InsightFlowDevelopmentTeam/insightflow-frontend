@@ -11,19 +11,19 @@ export default function Board({ workspaces }: BoardProps) {
     <div style={{ display: 'flex', gap: '20px', padding: '20px', overflowX: 'auto', backgroundColor: '#f2f6ffff' }}>
       <div
         style={{
-          flexShrink: 0,
-          width: '300px',
-          borderRadius: '3px',
-          padding: '10px',
-          minHeight: '400px',
+          maxWidth: "100%",              // ancho máximo
+          overflowX: "auto",             // scroll horizontal
+          overflowY: "hidden",           // sin scroll vertical
+          display: "flex",               // elementos en fila
+          gap: "1rem",                   // espacio entre items
+          paddingBottom: "10px"          // para que no se corte el scroll
         }}
       >
-        <div style={{ maxHeight: 'calc(100vh - 150px)', overflowY: 'auto' }}>
-          {workspaces.map((workspace) => (
-            <Card key={workspace.id} workspace={workspace} />
-          ))}
-        </div>
+        {workspaces.map((workspace) => (
+          <Card key={workspace.id} workspace={workspace} />
+        ))}
       </div>
+
     </div>
   );
 }

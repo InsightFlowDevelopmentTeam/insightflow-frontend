@@ -1,27 +1,11 @@
 import { GetWorkspaceByUser } from '@/src/models/GetWorkspaceByUser';
 import Board from '@/src/components/Board';
 import Link from 'next/link';
+import { getWorkspaces } from '../api/workspaces';
 
 const WORKSPACE_URL = process.env.NEXT_PUBLIC_WORKSPACES_URL;
-console.log('WORKSPACE_URL:', WORKSPACE_URL);
-
 const workspacesCache: { data: GetWorkspaceByUser[] | null } = { data: null };
 
-async function getWorkspaces(): Promise<GetWorkspaceByUser[]> {
-  // Temporalmente se usa un userId hardcodeado
-  const userId: string = "b3850a65-61d9-4417-8b03-de3a700d7064";
-  // Se tiene que reemplazar por obtener el userId del usuario logueado
-  const response = await fetch(WORKSPACE_URL + 'workspaces?userId=' + userId);
-  const workspaces: GetWorkspaceByUser[] = await response.json();
-  for (const workspace of workspaces) {
-    if (workspace.userRole === 'Owner') {
-      workspace.userRole = 'Propietario';
-    }
-  }
-  return workspaces;
-}
-
-// Este es un Server Component por defecto
 export default async function WorkspacesPage() {
   let workspaces: GetWorkspaceByUser[] = [];
   try {
@@ -77,7 +61,6 @@ export default async function WorkspacesPage() {
     </li>
   </div>
 </div>
-
       <Board workspaces={workspacesCache.data ?? []} />
     </main>
   );

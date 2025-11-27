@@ -1,5 +1,6 @@
 import React from 'react';
 import { GetWorkspaceByUser } from '@/src/models/GetWorkspaceByUser';
+import Options from '@/src/components/Options';
 
 interface CardProps {
   workspace: GetWorkspaceByUser;
@@ -29,6 +30,10 @@ export default function Card({ workspace }: CardProps) {
         Tu rol: <strong>{workspace.userRole}</strong>
       </p>
       <small style={{ color: '#000000ff' }}>ID del espacio: {workspace.id}</small>
+      <div>
+        <Options workspaceId={workspace.id} />
+      </div>
     </div>
+    
   );
 }
